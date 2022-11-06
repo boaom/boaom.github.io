@@ -16,24 +16,25 @@
   <meta name="author" content="o_O">
   <meta name="keywords" content="hexo,记录,博客">
   
-    <meta name="description" content="剧集简介◎译　　名　边缘世界 第一季&#x2F;末梢&#x2F;外围&#x2F;外围逃杀◎片　　名　The Peripheral Season 1◎年　　代　2022◎产　　地　美国◎类　　别　剧情&#x2F;科幻&#x2F;惊悚◎语　　言　英语◎上映日期　2022-10-21(美国)◎IMDb链接 https:&#x2F;&#x2F;www.imdb.com&#x2F;title&#x2F;&#x2F;◎豆瓣评分　8.6&#x2F;10 from 10927 users◎豆瓣链接　https:&#x2F;&#x2F;do">
+    <meta name="description" content="介绍Gost是一个功能多样且实用的安全隧道工具，使用的是go语言编写GitHub项目：https:&#x2F;&#x2F;github.com&#x2F;ginuerzh&#x2F;gostGost文档：https:&#x2F;&#x2F;docs.ginuerzh.xyz&#x2F;gostGost搭建Socks5：https:&#x2F;&#x2F;sunpma.com&#x2F;862.html 特性 多端口监听 可设置转发代理，支持多级转发(代理链) 支持标准HTTP&#x2F;HTTP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="边缘世界">
-<meta property="og:url" content="https://0837.eu.org/2022/11/06/%E8%BE%B9%E7%BC%98%E4%B8%96%E7%95%8C/index.html">
+<meta property="og:title" content="使用GOST搭建一个简单的端口转发">
+<meta property="og:url" content="https://0837.eu.org/2022/11/06/%E4%BD%BF%E7%94%A8GOST%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/index.html">
 <meta property="og:site_name" content="o_O">
-<meta property="og:description" content="剧集简介◎译　　名　边缘世界 第一季&#x2F;末梢&#x2F;外围&#x2F;外围逃杀◎片　　名　The Peripheral Season 1◎年　　代　2022◎产　　地　美国◎类　　别　剧情&#x2F;科幻&#x2F;惊悚◎语　　言　英语◎上映日期　2022-10-21(美国)◎IMDb链接 https:&#x2F;&#x2F;www.imdb.com&#x2F;title&#x2F;&#x2F;◎豆瓣评分　8.6&#x2F;10 from 10927 users◎豆瓣链接　https:&#x2F;&#x2F;do">
+<meta property="og:description" content="介绍Gost是一个功能多样且实用的安全隧道工具，使用的是go语言编写GitHub项目：https:&#x2F;&#x2F;github.com&#x2F;ginuerzh&#x2F;gostGost文档：https:&#x2F;&#x2F;docs.ginuerzh.xyz&#x2F;gostGost搭建Socks5：https:&#x2F;&#x2F;sunpma.com&#x2F;862.html 特性 多端口监听 可设置转发代理，支持多级转发(代理链) 支持标准HTTP&#x2F;HTTP">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://0837.eu.org/img/movie.png">
-<meta property="article:published_time" content="2022-11-06T06:27:20.000Z">
-<meta property="article:modified_time" content="2022-11-06T07:57:16.049Z">
+<meta property="og:image" content="https://0837.eu.org/img/github.png">
+<meta property="article:published_time" content="2022-11-06T08:30:38.000Z">
+<meta property="article:modified_time" content="2022-11-06T08:48:37.719Z">
 <meta property="article:author" content="o_O">
-<meta property="article:tag" content="剧集">
+<meta property="article:tag" content="分享">
+<meta property="article:tag" content="学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://0837.eu.org/img/movie.png">
+<meta name="twitter:image" content="https://0837.eu.org/img/github.png">
   
   
   
-  <title>边缘世界 - o_O</title>
+  <title>使用GOST搭建一个简单的端口转发 - o_O</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="边缘世界"></span>
+            <span id="subtitle" data-typed-text="使用GOST搭建一个简单的端口转发"></span>
           
         </div>
 
@@ -209,7 +210,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-06 14:27" pubdate>
+        <time datetime="2022-11-06 16:30" pubdate>
           2022年11月6日 下午
         </time>
       </span>
@@ -221,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          2.3k 字
         
       </span>
     
@@ -232,7 +233,7 @@
         
         
         
-          11 分钟
+          19 分钟
         
       </span>
     
@@ -270,24 +271,64 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">边缘世界</h1>
+            <h1 style="display: none">使用GOST搭建一个简单的端口转发</h1>
             
             
               <div class="markdown-body">
                 
-                <p><img src="https://s.imgkb.xyz/abcdocker/2022/11/06/cd1fa5fd79077/cd1fa5fd79077.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h2 id="剧集简介"><a href="#剧集简介" class="headerlink" title="剧集简介"></a>剧集简介</h2><p><code>◎译　　名　边缘世界 第一季/末梢/外围/外围逃杀</code><br><code>◎片　　名　The Peripheral Season 1</code><br><code>◎年　　代　2022</code><br><code>◎产　　地　美国</code><br><code>◎类　　别　剧情/科幻/惊悚</code><br><code>◎语　　言　英语</code><br><code>◎上映日期　2022-10-21(美国)</code><br><code>◎IMDb链接 https://www.imdb.com/title//</code><br><code>◎豆瓣评分　8.6/10 from 10927 users</code><br><code>◎豆瓣链接　https://douban.com/subject/30198955/</code><br><code>◎集　　数　8</code><br><code>◎片　　长　45分钟</code><br><code>◎导　　演　文森佐·纳塔利 Vincenzo Natali / 欧瑞克·莱利 Alrick Riley</code><br><code>◎编　　剧　斯科特·B·史密斯 Scott B. Smith / 杰米·陈 Jamie Chan / 威廉·吉布森 William Gibson / 克雷格·普拉格曼 Greg Plageman / 布朗温·加里蒂 Bronwyn Garrity</code><br><code>◎主　　演　科洛·莫瑞兹 Chloë Grace Moretz</code><br>　　　　 　<code>加里·卡尔 Gary Carr</code><br>　　　　 　<code>杰克·莱诺 Jack Reynor</code><br>　　　　 　<code>朱利安·摩尔-库克 Julian Moore-Cook</code><br>　　　　 　<code>路易斯·赫特哈姆 Louis Herthum</code><br>　　　　 　<code>克里斯·科伊 Chris Coy</code><br>　　　　 　<code>奥斯汀·赖辛 Austin Rising</code><br>　　　　 　<code>伊莱·格里 Eli Goree</code><br>　　　　 　<code>迈尔斯·巴罗 Miles Barrow</code><br>　　　　 　<code>梅琳达·佩吉·汉密尔顿 Melinda Page Hamilton</code><br>　　　　 　<code>阿德莱林德·霍伦 Adelind Horan</code><br>　　　　 　<code>大卫·霍夫林 David Hoflin</code><br>　　　　 　<code>杰拉德·班肯斯 Jared Bankens</code><br>　　　　 　<code>莫·巴艾尔 Moe Bar-El</code><br>　　　　 　<code>英迪尔·马伦 India Mullen</code><br>　　　　 　<code>汉娜·阿特登 Hannah Arterton</code><br>　　　　 　<code>亚历克斯·埃尔南德斯 Alex Hernandez</code><br>　　　　 　<code>卓库·莫度 Chuku Modu</code><br>　　　　 　<code>埃里克·蒂德 Eric Tiede</code><br>　　　　 　<code>波佩·科比-特曲 Poppy Corby-Tuech</code><br>　　　　 　<code>安佳丽·莫辛德拉 Anjli Mohindra</code><br>　　　　 　<code>本·迪基 Ben Dickey</code><br>　　　　 　<code>约翰·约瑟夫·菲尔德 JJ Feild</code><br>　　　　 　<code>泰尼亚·米勒 T&#39;Nia Miller</code><br>　　　　 　<code>梁佩诗 Katie Leung</code><br>　　　　 　<code>夏洛特·莱利 Charlotte Riley</code><br>　　　　 　<code>哈里森·吉尔伯特森 Harrison Gilbertson</code><br>　　　　 　<code>克莱尔·库珀 Claire Cooper</code><br>　　　　 　<code>安迪·麦肯济 Andy Mackenzie</code><br>　　　　 　<code>亚当·邓内尔斯 Adam Dunnells</code><br>　　　　 　<code>丹尼尔·卡希尔 Daniel Cahill</code><br>　　　　 　<code>迪安·丹顿 Dean Denton</code><br>　　　　 　<code>杰米·培根 Jamie Bacon</code><br>　　　　 　<code>奈德·丹内利 Ned Dennehy</code><br>　　　　 　<code>Brooke Carter Brooke Carter</code><br>　　　　 　<code>亚历珊德拉·毕林思 Alexandra Billings</code><br>　　　　 　<code>阿曼达·德鲁 Amanda Drew</code><br>　　　　 　<code>艾波·罗丝·雷瓦 Amber Rose Revah</code><br>　　　　 　<code>Grant Masters Grant Masters</code></p>
-<p><code>◎简　　介</code></p>
-<p>　　<code>该剧改编自赛博朋克小说之父威廉·吉布森的同名小说。讲述在未来的美国，科技逐渐改变着社会，而一位名叫弗琳·费舍（科洛·莫瑞兹 饰）的年轻女子发现了一台可以进入另一个现实世界的设备，并探索属于自己的黑暗未来。</code></p>
-<h2 id="剧集截图"><a href="#剧集截图" class="headerlink" title="剧集截图"></a>剧集截图</h2><p><img src="https://s.imgkb.xyz/abcdocker/2022/11/06/877b23b941e58/877b23b941e58.png" srcset="/img/loading.gif" lazyload alt="The.Peripheral.S01E01.Pilot.1080p.AMZN.WEB-DL.DDP5.1.H.264-NTb.mkv_1281"></p>
-<h2 id="剧集链接"><a href="#剧集链接" class="headerlink" title="剧集链接"></a>剧集链接</h2><table>
-<thead>
-<tr>
-<th>阿里云盘</th>
-<th><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/wa7EPsBi1A5">https://www.aliyundrive.com/s/wa7EPsBi1A5</a></th>
-</tr>
-</thead>
-</table>
+                <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><strong>Gost</strong>是一个功能多样且实用的安全隧道工具，使用的是<strong>go</strong>语言编写<br><strong>GitHub项目：</strong><a target="_blank" rel="noopener" href="https://github.com/ginuerzh/gost">https://github.com/ginuerzh/gost</a><br><strong>Gost文档：</strong><a target="_blank" rel="noopener" href="https://docs.ginuerzh.xyz/gost">https://docs.ginuerzh.xyz/gost</a><br><strong>Gost搭建Socks5：</strong><a target="_blank" rel="noopener" href="https://sunpma.com/862.html">https://sunpma.com/862.html</a></p>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ul>
+<li>多端口监听</li>
+<li>可设置转发代理，支持多级转发(代理链)</li>
+<li>支持标准HTTP&#x2F;HTTPS&#x2F;HTTP2&#x2F;SOCKS4(A)&#x2F;SOCKS5代理协议</li>
+<li>Web代理支持探测防御</li>
+<li>支持多种隧道类型</li>
+<li>SOCKS5代理支持TLS协商加密</li>
+<li>Tunnel UDP over TCP</li>
+<li>TCP&#x2F;UDP透明代理</li>
+<li>本地&#x2F;远程TCP&#x2F;UDP端口转发</li>
+<li>支持Shadowsocks(TCP&#x2F;UDP)协议</li>
+<li>支持SNI代理</li>
+<li>权限控制</li>
+<li>负载均衡</li>
+<li>路由控制</li>
+<li>DNS解析和代理</li>
+<li>TUN&#x2F;TAP设备</li>
+</ul>
+<h2 id="Linux安装"><a href="#Linux安装" class="headerlink" title="Linux安装"></a>Linux安装</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs awk">X64<br>wget <span class="hljs-string">&quot;https://github.com/ginuerzh/gost/releases/download/v2.8.1/gost_2.8.1_linux_amd64.tar.gz&quot;</span><br><br>tar -zxvf gost_2.<span class="hljs-number">8.1</span>_linux_amd64.tar.gz<br><br>mv gost_2.<span class="hljs-number">8.1</span>_linux_amd64<span class="hljs-regexp">/gost /u</span>sr<span class="hljs-regexp">/bin/g</span>ost<br><br>chmod +x <span class="hljs-regexp">/usr/</span>bin/gost<br>复制代码<br></code></pre></td></tr></table></figure>
+
+<p><code>ARM</code>（比如甲骨文<code>ARM</code>机型）</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs awk">wget <span class="hljs-string">&quot;https://github.com/ginuerzh/gost/releases/download/v2.8.1/gost_2.8.1_linux_arm.tar.gz&quot;</span><br><br>tar -zxvf gost_2.<span class="hljs-number">8.1</span>_linux_arm.tar.gz<br><br>mv gost_2.<span class="hljs-number">8.1</span>_linux_arm<span class="hljs-regexp">/gost /u</span>sr<span class="hljs-regexp">/bin/g</span>ost<br><br>chmod +x <span class="hljs-regexp">/usr/</span>bin/gost<br>复制代码<br></code></pre></td></tr></table></figure>
+
+<p><strong>TCP 转发</strong></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">gost -L=tcp:<span class="hljs-regexp">//</span>:本地使用端口/远程服务IP:远程服务端口<br>复制代码<br></code></pre></td></tr></table></figure>
+
+<p><strong>UDP 转发</strong></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">gost -L=udp:<span class="hljs-regexp">//</span>:本地使用端口/远程服务IP:远程服务端口<br>复制代码<br></code></pre></td></tr></table></figure>
+
+<p><strong>全协议转发（TCP+UDP）</strong></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">gost <span class="hljs-attribute">-L</span>=:本地使用端口/远程服务IP:远程服务端口<br>复制代码<br></code></pre></td></tr></table></figure>
+
+<p><strong>小飞机转发</strong></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">gost <span class="hljs-attribute">-L</span>=:本地使用端口 <span class="hljs-attribute">-F</span>=ss://加密方式:密码@远程服务IP:远程服务端口?nodelay=true<br>复制代码<br></code></pre></td></tr></table></figure>
+
+<p>示例：使用A服务器的<code>8888</code>端口转发IP为<code>114.114.114.114</code>的B服务器的<code>9999</code>端口（TCP+UDP）<br><code>gost -L=:8888/114.114.114.114:9999</code><br>创建命令后我们就可以连接到A服务器的<code>8888</code>端口，从而使用B服务器的<code>9999</code>端口；<br>如果服务器使用了宝塔面板需要在面板安全设置中放行对应的端口；</p>
+<p>如果测试后没有问题，就可以使用<code>nohup</code>命令将转发设置挂载到后台持续运行；<br><code>nohup</code>命令重启后会失效，开机后再次挂载即可重新使用；<br><strong>挂载后台</strong></p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arcade">nohup gost -L=:本地使用端口/远程服务IP:远程服务端口 &gt; <span class="hljs-regexp">/dev/</span><span class="hljs-literal">null</span> <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> &amp;<br>复制代码<br></code></pre></td></tr></table></figure>
+
+<p><strong>关闭挂载</strong></p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">kill -<span class="hljs-number">9</span> <span class="hljs-constructor">$(<span class="hljs-params">ps</span> <span class="hljs-params">aux</span> | <span class="hljs-params">grep</span> <span class="hljs-string">&quot;gost&quot;</span> | <span class="hljs-params">sed</span> &#x27;<span class="hljs-operator">/</span><span class="hljs-params">grep</span><span class="hljs-operator">/</span><span class="hljs-params">d</span>&#x27; | <span class="hljs-params">awk</span> &#x27;&#123;<span class="hljs-params">print</span> $2&#125;&#x27;)</span><br>复制代码<br></code></pre></td></tr></table></figure>
+
+<h2 id="Windows安装"><a href="#Windows安装" class="headerlink" title="Windows安装"></a>Windows安装</h2><p>首先下载需要的<code>Windows</code>版本程序：<a target="_blank" rel="noopener" href="https://github.com/ginuerzh/gost/releases">https://github.com/ginuerzh/gost/releases</a><br>压缩包解压后将得到的<code>exe</code>后缀文件移动到<code>C</code>盘根目录下<br>然后打开系统<code>CMD(命令提示符)</code>输入以下命令开始运行：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment"># 切换到C盘根目录</span><br>cd /<br><br><span class="hljs-comment"># 开始转发</span><br>gost-windows-amd64.exe -L=tcp:<span class="hljs-regexp">//</span>:本地使用端口/远程服务IP:远程服务端口<br><br><span class="hljs-comment"># 其中gost-windows-amd64.exe为移动到C盘根目录下的程序名称，如有不同自行修改；</span><br>复制代码<br></code></pre></td></tr></table></figure>
+
+<h2 id="iptables-一键脚本"><a href="#iptables-一键脚本" class="headerlink" title="iptables 一键脚本"></a>iptables 一键脚本</h2><p>如果不想使用GOST，也可以选择使用iptables来转发，这里推荐一个233大佬的端口转发一键脚本；<br><strong>安装</strong></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">wget -N --no-check-certificate https:<span class="hljs-regexp">//</span>raw.githubusercontent.com<span class="hljs-regexp">/sunpma/</span>doubi<span class="hljs-regexp">/master/i</span>ptables-pf.sh &amp;&amp; chmod +x iptables-pf.sh &amp;&amp; bash iptables-pf.sh<br>复制代码<br></code></pre></td></tr></table></figure>
+
+<p><strong>管理</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs markdown">./iptables-pf.sh<br> iptables 端口转发一键管理脚本 [v1.1.1]<br>  <br><span class="hljs-bullet"> 0.</span> 升级脚本<br>————————————<br><span class="hljs-bullet"> 1.</span> 安装 iptables<br><span class="hljs-bullet"> 2.</span> 清空 iptables 端口转发<br>————————————<br><span class="hljs-bullet"> 3.</span> 查看 iptables 端口转发<br><span class="hljs-bullet"> 4.</span> 添加 iptables 端口转发<br><span class="hljs-bullet"> 5.</span> 删除 iptables 端口转发<br>————————————<br>注意：初次使用前请请务必执行 1. 安装 iptables(不仅仅是安装)<br><br> 请输入数字 [0-5]:<br>复制代码<br></code></pre></td></tr></table></figure>
+
+<p><strong>添加转发时依次输入落地端IP、落地端口、本地端口、本地内网IP、转发类型；</strong><br><strong>注意：填写本机IP时是填写本地内网IP地址，而非外网IP地址，查看本地内网IP地址可以使用<code>ifconfig</code>命令；</strong><br><a target="_blank" rel="noopener" href="https://sunpma.com/usr/uploads/2020/10/3120166323.png"><img src="https://s.imgkb.xyz/abcdocker/2022/11/06/29204226b4b64/29204226b4b64.png" srcset="/img/loading.gif" lazyload alt="img"></a></p>
 
                 
               </div>
@@ -306,7 +347,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%89%A7%E9%9B%86/" class="category-chain-item">剧集</a>
+  <a href="/categories/%E5%88%86%E4%BA%AB/" class="category-chain-item">分享</a>
   
   
 
@@ -321,7 +362,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%89%A7%E9%9B%86/">#剧集</a>
+        <a href="/tags/%E5%88%86%E4%BA%AB/">#分享</a>
+      
+        <a href="/tags/%E5%AD%A6%E4%B9%A0/">#学习</a>
       
     </div>
   
@@ -333,8 +376,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>边缘世界</div>
-      <div>https://0837.eu.org/2022/11/06/边缘世界/</div>
+      <div>使用GOST搭建一个简单的端口转发</div>
+      <div>https://0837.eu.org/2022/11/06/使用GOST搭建一个简单的端口转发/</div>
     </div>
     <div class="license-meta">
       
@@ -378,15 +421,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/06/%E4%BD%BF%E7%94%A8GOST%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/" title="使用GOST搭建一个简单的端口转发">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">使用GOST搭建一个简单的端口转发</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2022/11/06/%E8%BE%B9%E7%BC%98%E4%B8%96%E7%95%8C/" title="边缘世界">
+                        <span class="hidden-mobile">边缘世界</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
